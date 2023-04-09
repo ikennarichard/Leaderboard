@@ -12,9 +12,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ikennarichard/Leaderboard/issues"
   },
-  "homepage": "https://github.com/ikennarichard/Leaderboard#readme"
+  "homepage": "https://github.com/ikennarichard/Leaderboard#readme",
+  "devDependencies": {
+    "webpack": "^5.78.0",
+    "webpack-cli": "^5.0.1"
+  }
 }
