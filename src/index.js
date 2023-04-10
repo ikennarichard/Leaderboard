@@ -11,3 +11,5 @@ form.addEventListener('submit', (e) => {
 
   user.addScore(userName, userScore);
 });
+
+window.onload = user.displayScores();
