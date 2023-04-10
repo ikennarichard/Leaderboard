@@ -7,6 +7,27 @@
   <title>Leaderboard</title>
 </head>
 <body>
-  <h1>Leaderboard</h1>
+  <main>
+    <h1>Leaderboard</h1>
+    <div>
+      <section class="scores_display">
+        <div class="heading_wrapper">
+          <h2>Recent Scores</h2>
+          <button>Refresh</button>
+        </div>
+        <ul class="score_list">
+        </ul>
+      </section>
+
+      <section class="add_scores">
+          <h2>Recent Scores</h2>
+          <form>
+            <input class="user_name" name="userName" type="text" placeholder="Your name" required>
+            <input class="user_score" name="userScore" type="number" placeholder="Your score" required>
+            <button type="submit">Submit</button>
+          </form>
+      </section>
+    </div>
+  </main>
 </body>
 </html>
