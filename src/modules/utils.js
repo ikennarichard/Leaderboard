@@ -7,7 +7,7 @@ export default class Utils {
   }
 
   addScore(name, score) {
-    const userScore = UserScore(name, score);
+    const userScore = new UserScore(name, score);
     this.addToScoresList(userScore);
     this.updateStorage(score);
     this.displayScores();
@@ -18,11 +18,11 @@ export default class Utils {
   }
 
   updateStorage() {
-    localStorage.setItem('tasks', JSON.stringify(this.taskList));
+    localStorage.setItem('scores', JSON.stringify(this.scoreList));
   }
 
   getScores(arr) {
-    const list = arr.map((item, i) => `<li id=${i}> ${item.name}: ${item.score}</l1>`);
+    const list = arr.map((item, i) => `<li id='${i}'> ${item.name}: ${item.score}</l1>`).join('');
     return list;
   }
 
