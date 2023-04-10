@@ -9,3 +9,46 @@
 body {
   background-color: azure;
 }
+
+main {
+  padding: 10px;
+}
+
+.heading_wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.container {
+  display: flex;
+  gap: 10%;
+  margin-top: 2%;
+}
+
+.scores_display {
+  border: 1px solid;
+  padding: 0.3em;
+}
+
+li {
+  padding-block: 0.3em;
+  list-style-type: none;
+}
+
+li:nth-of-type(even) {
+  background-color: skyblue;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input {
+  padding: 0.3em;
+}
+
+form button {
+  width: fit-content;
+}
