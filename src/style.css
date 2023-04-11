@@ -33,6 +33,7 @@ main {
 li {
   padding-block: 0.3em;
   list-style-type: none;
+  text-transform: capitalize;
 }
 
 li:nth-of-type(even) {
