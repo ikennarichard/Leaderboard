@@ -1,5 +1,7 @@
 /* eslint-disable class-methods-use-this */
-export default class FetchHelpers {
+import Utils from "./utils.js";
+
+export default class FetchHandlers {
   async get(endpoint) {
     const resposnse = await fetch(endpoint);
     const data = await resposnse.json();
@@ -17,13 +19,13 @@ export default class FetchHelpers {
       });
       const result = response.json();
       return result;
-    } catch (error) {
-      throw new Error(error);
+    } catch (e) {
+      throw new Error(e);
     }
   }
 
   static createID() {
-    const { item } = this.post('https://us-central1-js-capstone-backend.cloudfunctions.net/api/', { name: 'My cool new game' });
+    const { item } = this.post('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games', { name: 'My cool new game' });
     return item.slice(15, -7).trim();
   }
 
@@ -37,8 +39,17 @@ export default class FetchHelpers {
 
   createNewGame() {
     if (!this.getFromStorage()) {
-      const id = FetchHelpers.createID();
+      const id = FetchHandlers.createID();
       this.addToStorage(id);
+    }
+  }
+
+  async refreshScores() {
+    try {
+      const { result } = await this.get(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${this.getFromStorage()}/scores`);
+      Utils.displayScores(result);
+    } catch (e) {
+      throw new Error(e);
     }
   }
 }
