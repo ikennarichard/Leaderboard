@@ -22,9 +22,9 @@ export default class FetchHelpers {
     }
   }
 
-  createID() {
-    const id = this.post('https://us-central1-js-capstone-backend.cloudfunctions.net/api/', { name: 'My cool new game' });
-    return id.slice(15, -7).trim();
+  static createID() {
+    const { item } = this.post('https://us-central1-js-capstone-backend.cloudfunctions.net/api/', { name: 'My cool new game' });
+    return item.slice(15, -7).trim();
   }
 
   addToStorage(data) {
@@ -33,5 +33,12 @@ export default class FetchHelpers {
 
   getFromStorage() {
     return JSON.parse(localStorage.getItem('ID'));
+  }
+
+  createNewGame() {
+    if (!this.getFromStorage()) {
+      const id = FetchHelpers.createID();
+      this.addToStorage(id);
+    }
   }
 }
