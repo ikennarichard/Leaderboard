@@ -1,32 +1,30 @@
 /* eslint-disable class-methods-use-this */
-import UserScore from './userScore.js';
-
 export default class Utils {
-  constructor() {
-    this.scoreList = JSON.parse(localStorage.getItem('scores')) || [];
-  }
-
-  addScore(name, score) {
-    const userScore = new UserScore(name, score);
-    this.addToScoresList(userScore);
-    this.updateStorage(score);
-    this.displayScores();
-  }
-
-  addToScoresList(score) {
-    this.scoreList.push(score);
-  }
-
-  updateStorage() {
-    localStorage.setItem('scores', JSON.stringify(this.scoreList));
-  }
-
-  getScores(arr) {
-    const list = arr.map((item, i) => `<li id='${i}'> ${item.name}: ${item.score}</l1>`).join('');
+  static getScores(result) {
+    const list = result.sort((a, b) => a.score - b.score).map((item, i) => `<li id='${i}'> ${item.user}: ${item.score}</l1>`).join('');
     return list;
   }
 
-  displayScores() {
-    document.querySelector('.score_list').innerHTML = this.getScores(this.scoreList);
+  static displayScores(scores) {
+    if (scores.length === 0) {
+      document.querySelector('.score_list').innerHTML = '<li>No scores added yet';
+    } else {
+      document.querySelector('.score_list').innerHTML = Utils.getScores(scores);
+    }
+  }
+
+  static displayStatus(result) {
+    document.querySelector('.status').innerText = result;
+    setTimeout(() => {
+      document.querySelector('.status').innerText = '';
+    }, 1300);
+  }
+
+  static addToStorage(data) {
+    localStorage.setItem('ID', JSON.stringify(data));
+  }
+
+  static getFromStorage() {
+    return JSON.parse(localStorage.getItem('ID'));
   }
 }

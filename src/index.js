@@ -1,21 +1,24 @@
 import './style.css';
-import Utils from './modules/utils.js';
+import FetchHandlers from './modules/handlers.js';
 
-const user = new Utils();
+const handlers = new FetchHandlers();
 const form = document.querySelector('form');
+const refresh = document.querySelector('.refresh');
 
 const clearInput = () => {
   document.querySelector('.user_name').value = '';
   document.querySelector('.user_score').value = '';
 };
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const userName = document.querySelector('.user_name').value;
-  const userScore = document.querySelector('.user_score').value;
+window.addEventListener('DOMContentLoaded', async () => {
+  await handlers.createNewGame();
+  handlers.refreshScores();
 
-  user.addScore(userName, userScore);
-  clearInput();
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    handlers.postScore();
+    clearInput();
+  });
+
+  refresh.addEventListener('click', () => handlers.refreshScores());
 });
-
-window.onload = user.displayScores();

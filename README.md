@@ -62,6 +62,7 @@ A leaderboard list app that allow users to create and manage list of names and r
 
 - Section for displaying scores
 - Section for adding scores
+- Manage game with the Leaderboard API
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
