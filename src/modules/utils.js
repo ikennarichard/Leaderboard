@@ -18,4 +18,12 @@ export default class Utils {
       document.querySelector('.status').innerText = '';
     }, 2000);
   }
+
+  static addToStorage(data) {
+    localStorage.setItem('ID', JSON.stringify(data));
+  }
+
+  static getFromStorage() {
+    return JSON.parse(localStorage.getItem('ID'));
+  }
 }
