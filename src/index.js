@@ -10,8 +10,8 @@ const clearInput = () => {
   document.querySelector('.user_score').value = '';
 };
 
-window.addEventListener('DOMContentLoaded', () => {
-  handlers.createNewGame();
+window.addEventListener('DOMContentLoaded', async () => {
+  await handlers.createNewGame();
   handlers.refreshScores();
 
   form.addEventListener('submit', (e) => {
