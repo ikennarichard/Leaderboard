@@ -1,32 +1,14 @@
 /* eslint-disable class-methods-use-this */
-import UserScore from './userScore.js';
-
 export default class Utils {
-  constructor() {
-    this.scoreList = JSON.parse(localStorage.getItem('scores')) || [];
-  }
-
-  addScore(name, score) {
-    const userScore = new UserScore(name, score);
-    this.addToScoresList(userScore);
-    this.updateStorage(score);
-    this.displayScores();
-  }
-
-  addToScoresList(score) {
-    this.scoreList.push(score);
-  }
-
-  updateStorage() {
-    localStorage.setItem('scores', JSON.stringify(this.scoreList));
-  }
-
-  getScores(arr) {
-    const list = arr.map((item, i) => `<li id='${i}'> ${item.name}: ${item.score}</l1>`).join('');
+  static getScores(result) {
+    const list = result.sort((a, b) => a.score - b.score).map((item, i) => `<li id='${i}'> ${item.user}: ${item.score}</l1>`).join('');
     return list;
   }
 
-  displayScores() {
-    document.querySelector('.score_list').innerHTML = this.getScores(this.scoreList);
+  static displayScores(scores) {
+    if (!scores) {
+      document.querySelector('.score_list').innerHTML = '<li>No scores added yet</li>';
+    }
+    document.querySelector('.score_list').innerHTML = Utils.getScores(scores);
   }
 }
