@@ -44,6 +44,10 @@ li:nth-of-type(even) {
   background-color: skyblue;
 }
 
+li:nth-of-type(even).dark {
+  background-color: rgb(59, 59, 59);
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -78,5 +82,29 @@ header {
   height: 19px;
   border: 2px solid dimgray;
   border-radius: 15px;
+  cursor: pointer;
 }
 
+.toggle_theme::before {
+  display: block;
+  content: '';
+  position: relative;
+  top: 1.3px;
+  left: 1px;
+  transition: 0.4s;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: dimgray;
+  border-radius: 15px;
+}
+
+.toggle_theme.active::before {
+  left: 22px;
+  background-color: azure;
+}
+
+body.dark {
+  background-color: darkslategrey;
+  color: whitesmoke;
+}
