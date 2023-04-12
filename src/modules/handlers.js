@@ -32,4 +32,17 @@ export default class FetchHandlers {
     const id = result.slice(15, -7);
     FetchHandlers.addToStorage(id);
   }
+
+  async postScore() {
+    const user = document.querySelector('.user_name').value.trim();
+    const score = document.querySelector('.user_score').value.trim();
+    const item = new UserScore(user, score);
+    try {
+      const { result } = await this.post(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${FetchHandlers.getFromStorage()}/scores`, item);
+
+      Utils.displayStatus(result);
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
 }
