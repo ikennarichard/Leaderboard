@@ -11,6 +11,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: azure;
+  color: rgb(45, 45, 45);
 }
 
 main {
@@ -64,3 +65,18 @@ form button {
   width: 200px;
   color: green;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle_theme {
+  display: block;
+  width: 40px;
+  height: 19px;
+  border: 2px solid dimgray;
+  border-radius: 15px;
+}
+
