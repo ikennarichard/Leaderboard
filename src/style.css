@@ -46,6 +46,7 @@ li:nth-of-type(even) {
 
 li:nth-of-type(even).dark {
   background-color: rgb(59, 59, 59);
+  border-color: aliceblue;
 }
 
 form {
