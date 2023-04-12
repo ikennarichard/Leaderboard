@@ -70,7 +70,7 @@ A leaderboard list app that allow users to create and manage list of names and r
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- Not available
+[Live Demo](https://micro-leaderboard.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
