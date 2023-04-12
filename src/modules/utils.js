@@ -6,17 +6,18 @@ export default class Utils {
   }
 
   static displayScores(scores) {
-    if (!scores) {
-      document.querySelector('.score_list').innerHTML = '<li>No scores added yet</li>';
+    if (scores.length === 0) {
+      document.querySelector('.score_list').innerHTML = '<li>No scores added yet';
+    } else {
+      document.querySelector('.score_list').innerHTML = Utils.getScores(scores);
     }
-    document.querySelector('.score_list').innerHTML = Utils.getScores(scores);
   }
 
   static displayStatus(result) {
     document.querySelector('.status').innerText = result;
     setTimeout(() => {
       document.querySelector('.status').innerText = '';
-    }, 2000);
+    }, 1300);
   }
 
   static addToStorage(data) {
