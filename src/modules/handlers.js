@@ -25,12 +25,12 @@ export default class FetchHandlers {
   }
 
   async createNewGame() {
-    if (FetchHandlers.getFromStorage()) {
+    if (Utils.getFromStorage()) {
       return;
     }
     const { result } = await this.post('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games', { name: 'My cool new game' });
     const id = result.slice(15, -7);
-    FetchHandlers.addToStorage(id);
+    Utils.addToStorage(id);
   }
 
   async postScore() {
@@ -38,9 +38,19 @@ export default class FetchHandlers {
     const score = document.querySelector('.user_score').value.trim();
     const item = new UserScore(user, score);
     try {
-      const { result } = await this.post(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${FetchHandlers.getFromStorage()}/scores`, item);
+      const { result } = await this.post(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${Utils.getFromStorage()}/scores`, item);
 
       Utils.displayStatus(result);
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
+
+  async refreshScores() {
+    try {
+      const { result } = await this.get(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${Utils.getFromStorage()}/scores`);
+
+      Utils.displayScores(result);
     } catch (e) {
       throw new Error(e);
     }
