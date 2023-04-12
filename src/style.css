@@ -12,10 +12,15 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: azure;
   color: rgb(45, 45, 45);
+  min-height: 100vh;
 }
 
 main {
   padding: 10px;
+}
+
+h1 {
+  text-align: center;
 }
 
 .heading_wrapper {
@@ -26,22 +31,29 @@ main {
 .container {
   display: flex;
   gap: 10%;
-  margin-top: 2%;
+  margin-top: 40px;
 }
 
 .scores_display {
-  border: 1px solid;
   padding: 0.3em;
 }
 
+ul {
+  border: 3px solid;
+  margin-block-start: 1em;
+  display: grid;
+  gap: 5px;
+  padding: 0.2em;
+}
+
 li {
-  padding-block: 0.3em;
+  padding: 0.3em;
   list-style-type: none;
   text-transform: capitalize;
 }
 
 li:nth-of-type(even) {
-  background-color: skyblue;
+  background-color: lavender;
 }
 
 li:nth-of-type(even).dark {
@@ -56,18 +68,38 @@ form {
   margin-top: 1em;
 }
 
-form input {
-  padding: 0.3em;
+form div {
+  width: 300px;
 }
 
-form button {
-  width: fit-content;
+form input {
+  padding: 1em;
+  width: 100%;
+  border: 1px solid darkslategrey;
+}
+
+form button, button {
+  width: 100px;
+  padding: 0.5em;
+  align-self: center;
+  transition: 0.5s;
+  background-color: darkslategrey;
+  border: none;
+  border-radius: 5px 5px 6px 7px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+
+button.dark {
+  background-color: azure;
+  color: darkslategray;
 }
 
 .status {
   display: inline-block;
   height: 40px;
-  width: 200px;
+  width: 230px;
   color: green;
 }
 
