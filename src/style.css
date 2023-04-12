@@ -58,7 +58,6 @@ li:nth-of-type(even) {
 
 li:nth-of-type(even).dark {
   background-color: rgb(59, 59, 59);
-  border-color: aliceblue;
 }
 
 form {
@@ -85,15 +84,17 @@ form button, button {
   transition: 0.5s;
   background-color: darkslategrey;
   border: none;
-  border-radius: 5px 5px 6px 7px;
+  border-radius: 4px 7px 4px 7px;
   cursor: pointer;
   font-weight: bold;
   color: white;
+  box-shadow: 2px 2px 2px gray;
 }
 
 button.dark {
   background-color: azure;
   color: darkslategray;
+  box-shadow: 2px 2px 2px rgb(49, 49, 49);
 }
 
 .status {
@@ -101,6 +102,10 @@ button.dark {
   height: 40px;
   width: 230px;
   color: green;
+}
+
+.status.dark {
+  color: azure;
 }
 
 header {
