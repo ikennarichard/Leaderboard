@@ -77,7 +77,8 @@ form input {
   border: 1px solid darkslategrey;
 }
 
-form button, button {
+button,
+form button {
   width: 100px;
   padding: 0.5em;
   align-self: center;
@@ -138,7 +139,6 @@ header {
   height: 13px;
   border-radius: 50%;
   background-color: dimgray;
-  border-radius: 15px;
 }
 
 .toggle_theme.active::before {
