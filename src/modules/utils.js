@@ -11,4 +11,11 @@ export default class Utils {
     }
     document.querySelector('.score_list').innerHTML = Utils.getScores(scores);
   }
+
+  static displayStatus(result) {
+    document.querySelector('.status').innerText = result;
+    setTimeout(() => {
+      document.querySelector('.status').innerText = '';
+    }, 2000);
+  }
 }
