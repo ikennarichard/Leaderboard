@@ -37,6 +37,9 @@ export default class Utils {
       document.querySelectorAll('li:nth-of-type(even)').forEach((item) => {
         item.classList.toggle('dark');
       });
+      document.querySelectorAll('button').forEach((item) => {
+        item.classList.toggle('dark');
+      });
     });
   }
 
