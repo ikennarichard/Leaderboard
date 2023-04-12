@@ -7,7 +7,7 @@ export default class Utils {
 
   static displayScores(scores) {
     if (scores.length === 0) {
-      document.querySelector('.score_list').innerHTML = '<li>No scores added yet';
+      document.querySelector('.score_list').innerHTML = '<li>No scores added yet</li>';
     } else {
       document.querySelector('.score_list').innerHTML = Utils.getScores(scores);
     }
@@ -34,6 +34,7 @@ export default class Utils {
     toggle.addEventListener('click', () => {
       toggle.classList.toggle('active');
       body.classList.toggle('dark');
+      document.querySelector('.status').classList.toggle('dark');
       document.querySelectorAll('li:nth-of-type(even)').forEach((item) => {
         item.classList.toggle('dark');
       });
