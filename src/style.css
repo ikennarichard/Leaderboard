@@ -11,10 +11,16 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: azure;
+  color: rgb(45, 45, 45);
+  min-height: 100vh;
 }
 
 main {
   padding: 10px;
+}
+
+h1 {
+  text-align: center;
 }
 
 .heading_wrapper {
@@ -25,22 +31,33 @@ main {
 .container {
   display: flex;
   gap: 10%;
-  margin-top: 2%;
+  margin-top: 40px;
 }
 
 .scores_display {
-  border: 1px solid;
   padding: 0.3em;
 }
 
+ul {
+  border: 3px solid;
+  margin-block-start: 1em;
+  display: grid;
+  gap: 5px;
+  padding: 0.2em;
+}
+
 li {
-  padding-block: 0.3em;
+  padding: 0.3em;
   list-style-type: none;
   text-transform: capitalize;
 }
 
 li:nth-of-type(even) {
-  background-color: skyblue;
+  background-color: lavender;
+}
+
+li:nth-of-type(even).dark {
+  background-color: rgb(59, 59, 59);
 }
 
 form {
@@ -50,17 +67,86 @@ form {
   margin-top: 1em;
 }
 
+form div {
+  width: 300px;
+}
+
 form input {
-  padding: 0.3em;
+  padding: 1em;
+  width: 100%;
+  border: 1px solid darkslategrey;
+}
+
+button,
+form button {
+  width: 100px;
+  padding: 0.5em;
+  align-self: center;
+  transition: 0.5s;
+  background-color: darkslategrey;
+  border: none;
+  border-radius: 4px 7px 4px 7px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  box-shadow: 2px 2px 2px gray;
 }
 
 form button {
-  width: fit-content;
+  align-self: flex-end;
+}
+
+button.dark {
+  background-color: azure;
+  color: darkslategray;
+  box-shadow: 2px 2px 2px rgb(49, 49, 49);
 }
 
 .status {
   display: inline-block;
   height: 40px;
-  width: 200px;
+  width: 230px;
   color: green;
+}
+
+.status.dark {
+  color: azure;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle_theme {
+  display: block;
+  width: 40px;
+  height: 19px;
+  border: 2px solid dimgray;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.toggle_theme::before {
+  display: block;
+  content: '';
+  position: relative;
+  top: 1.3px;
+  left: 1px;
+  transition: 0.4s;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: dimgray;
+}
+
+.toggle_theme.active::before {
+  left: 22px;
+  background-color: azure;
+}
+
+body.dark {
+  background-color: darkslategrey;
+  color: whitesmoke;
 }

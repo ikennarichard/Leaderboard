@@ -1,13 +1,13 @@
 /* eslint-disable class-methods-use-this */
 export default class Utils {
   static getScores(result) {
-    const list = result.sort((a, b) => a.score - b.score).map((item, i) => `<li id='${i}'> ${item.user}: ${item.score}</l1>`).join('');
+    const list = result.sort((a, b) => a.score - b.score).map((item, i) => `<li class='list_item' id='${i}'> ${item.user}: ${item.score}</li>`).join('');
     return list;
   }
 
   static displayScores(scores) {
     if (scores.length === 0) {
-      document.querySelector('.score_list').innerHTML = '<li>No scores added yet';
+      document.querySelector('.score_list').innerHTML = '<li>No scores added yet</li>';
     } else {
       document.querySelector('.score_list').innerHTML = Utils.getScores(scores);
     }
@@ -27,4 +27,25 @@ export default class Utils {
   static getFromStorage() {
     return JSON.parse(localStorage.getItem('ID'));
   }
+
+  static toggleTheme = () => {
+    const toggle = document.querySelector('.toggle_theme');
+    const body = document.querySelector('body');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      body.classList.toggle('dark');
+      document.querySelector('.status').classList.toggle('dark');
+      document.querySelectorAll('li:nth-of-type(even)').forEach((item) => {
+        item.classList.toggle('dark');
+      });
+      document.querySelectorAll('button').forEach((item) => {
+        item.classList.toggle('dark');
+      });
+    });
+  }
+
+  static clearInput = () => {
+    document.querySelector('.user_name').value = '';
+    document.querySelector('.user_score').value = '';
+  };
 }
