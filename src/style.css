@@ -91,6 +91,10 @@ form button, button {
   box-shadow: 2px 2px 2px gray;
 }
 
+form button {
+  align-self: flex-end;
+}
+
 button.dark {
   background-color: azure;
   color: darkslategray;
