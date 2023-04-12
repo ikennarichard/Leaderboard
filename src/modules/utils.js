@@ -29,16 +29,19 @@ export default class Utils {
   }
 
   static toggleTheme = () => {
-    const toggle = document.querySelector('.toggle_theme')
-    const body = document.querySelector('body')
-    console.log(body);
-  
+    const toggle = document.querySelector('.toggle_theme');
+    const body = document.querySelector('body');
     toggle.addEventListener('click', () => {
       toggle.classList.toggle('active');
       body.classList.toggle('dark');
-      document.querySelectorAll('li:nth-of-type(even)').forEach(item => {
-        item.classList.toggle('dark')
-      })
-    })
+      document.querySelectorAll('li:nth-of-type(even)').forEach((item) => {
+        item.classList.toggle('dark');
+      });
+    });
   }
+
+  static clearInput = () => {
+    document.querySelector('.user_name').value = '';
+    document.querySelector('.user_score').value = '';
+  };
 }
