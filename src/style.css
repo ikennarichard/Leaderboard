@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 *,
 *::before,
 *::after {
@@ -7,6 +8,7 @@
 }
 
 body {
+  font-family: 'Roboto', sans-serif;
   background-color: azure;
 }
 
@@ -52,4 +54,11 @@ form input {
 
 form button {
   width: fit-content;
+}
+
+.status {
+  display: inline-block;
+  height: 40px;
+  width: 200px;
+  color: green;
 }
