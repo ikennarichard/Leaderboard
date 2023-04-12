@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 export default class Utils {
   static getScores(result) {
-    const list = result.sort((a, b) => a.score - b.score).map((item, i) => `<li id='${i}'> ${item.user}: ${item.score}</l1>`).join('');
+    const list = result.sort((a, b) => a.score - b.score).map((item, i) => `<li class='list_item' id='${i}'> ${item.user}: ${item.score}</li>`).join('');
     return list;
   }
 
@@ -26,5 +26,19 @@ export default class Utils {
 
   static getFromStorage() {
     return JSON.parse(localStorage.getItem('ID'));
+  }
+
+  static toggleTheme = () => {
+    const toggle = document.querySelector('.toggle_theme')
+    const body = document.querySelector('body')
+    console.log(body);
+  
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      body.classList.toggle('dark');
+      document.querySelectorAll('li:nth-of-type(even)').forEach(item => {
+        item.classList.toggle('dark')
+      })
+    })
   }
 }
